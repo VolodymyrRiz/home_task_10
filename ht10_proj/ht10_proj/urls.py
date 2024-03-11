@@ -20,13 +20,10 @@ from django.urls import path, include
 
 
 urlpatterns = [
-<<<<<<< HEAD
     path('admin/', admin.site.urls), 
     path("", include('quotes.urls')),
-=======
     path('admin/', admin.site.urls),
     path('', include('quotes.urls'))
->>>>>>> 1493a3ea9564dc5f0e47698ff1fb677580d36d6b
     #path('users/', include('users.urls'))
 ]
 
