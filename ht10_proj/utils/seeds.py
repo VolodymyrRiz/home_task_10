@@ -82,24 +82,24 @@ avt_list = []
 #         with open('authors.json', 'w', encoding='utf-8') as fil:
 #             json.dump(author_json, fil)
  
-# def load_authors():
-#     with open("authors.json", 'r', encoding="utf-8") as file:
-#         data_of_authors = json.load(file)
-#         for author in data_of_authors:
-#             auth = Author(fullname=author.get("fullname"),
-#                          born_date=author.get("born_date"),
-#                          born_location=author.get("born_location"),
-#                          description=author.get("description"))
-#             auth .save()
-with open("quotes.json", 'r', encoding="utf-8") as file:
-    data_of_quotes = json.load(file)
-    for quote_ in data_of_quotes:
-        quot = Quote(author=quote_.get("author"),
-                        quote=quote_.get("quote"),
-                        tags=quote_.get("tags"))
-        quot.save()    
+def load_authors():
+    # with open("authors.json", 'r', encoding="utf-8") as file:
+    #     data_of_authors = json.load(file)
+    #     for author in data_of_authors:
+    #         auth = Author(fullname=author.get("fullname"),
+    #                      born_date=author.get("born_date"),
+    #                      born_location=author.get("born_location"),
+    #                      description=author.get("description"))
+    #         auth .save()
+    with open("quotes.json", 'r', encoding="utf-8") as file:
+        data_of_quotes = json.load(file)
+        for quote_ in data_of_quotes:
+            quot = Quote(author=quote_.get("author"),
+                            quote=quote_.get("quote"),
+                            tags=quote_.get("tags"))
+            quot.save()    
         
     
             
-# if __name__ == '__main__':        
-#     load_authors()
+if __name__ == '__main__':        
+    load_authors()
