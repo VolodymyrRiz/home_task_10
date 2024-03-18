@@ -6,7 +6,7 @@ from models2 import Authors, Quotes
 import connect2 as connect2
 import os
 
-client = MongoClient('mongodb://localhost') 
+client = MongoClient('mongodb://localhost:27017') 
 
 db = client.hw
 
