@@ -1,4 +1,4 @@
-from models2 import Authors, Quotes
+from ht10_proj.quotes.templatetags.models2 import Authors, Quotes
 import connect2 as connect2
 import os
 
