@@ -2,7 +2,7 @@ import json
 from bson.objectid import ObjectId
 from pymongo import MongoClient
 from pymongo.server_api import ServerApi
-from ht10_proj.quotes.templatetags.models2 import Authors, Quotes
+from models2 import Authors, Quotes
 import connect2 as connect2
 import os
 
