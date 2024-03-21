@@ -2,13 +2,13 @@
 
 {% block content %}
 
-{% if messages %}
+{% comment %} {% if messages %}
 <div>
     {% for message in messages %}
     <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
     {% endfor %}
 </div>
-{% endif %}
+{% endif %} {% endcomment %}
 
 <form action="{% url 'users:login' %}" method="post">
     {% csrf_token %}

@@ -1,7 +1,7 @@
 
 from django.shortcuts import render
 from .utils import get_mongodb
-from django.core.paginator import Paginator
+#from django.core.paginator import Paginator
 
 # Create your views here.
 def main(request, page=1):
