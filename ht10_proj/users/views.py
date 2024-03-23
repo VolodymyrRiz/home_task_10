@@ -51,9 +51,8 @@ from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
+from django.urls import reverse_lazy
 
-def index(request):
-    return render(request, 'index.html')
 
 class RegisterView(View):
     template_name = "users/signup.html"
@@ -88,6 +87,10 @@ class RegisterView(View):
         return render(request, 'users/signup.html', {'form': form})
 
 class LoginView(View):
+    
+    def index(request):
+        return render(request, 'index.html')
+    
     def get(self, request):
         if request.user.is_authenticated:            
             return redirect('quotes:main')
@@ -101,7 +104,7 @@ class LoginView(View):
             return redirect('users:login')
 
         login(request, user)
-        return redirect('quotes:index')
+        return redirect('quotes:main')
     
     def login_view(request):
         if request.method == 'POST':
@@ -110,6 +113,11 @@ class LoginView(View):
         else:
             form = AuthenticationForm()
         return render(request, 'users/login.html', {'form': form})
+    
+    template_name = 'users/login.html'
+
+    def get_success_url(self):
+        return reverse_lazy('index') 
     
 # @login_required
 # def logoutuser(request):

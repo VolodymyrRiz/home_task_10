@@ -16,5 +16,5 @@ app_name = "users"
 urlpatterns = [
     path("signup/", views.RegisterView.as_view(), name="signup"),
     path('login/', views.LoginView.as_view(), name='login'),
-    path('index/', views.index, name='index'),  # Додайте цей рядок
+    path('', views.LoginView.as_view(), name='index'), # Додайте цей рядок
 ]
