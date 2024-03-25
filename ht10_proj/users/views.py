@@ -25,6 +25,15 @@ class RegisterView(View):
             messages.success(request, f"Hello {username}, Your account created successfully")
             return redirect(to="users:login")
         return render(request, self.template_name, context={"form": form})
+    
+    def quote(self, request):
+        print('lllllllllllllll')
+        return render(request,'quotes/index.html')
+    
+    def author(self, request):
+        print('aaaaaaaaaaaaaaaaa')
+        return render(request,'quotes/index.html')
+        
 
 # from django.views import View
 # from .forms import RegisterForm, LoginForm
