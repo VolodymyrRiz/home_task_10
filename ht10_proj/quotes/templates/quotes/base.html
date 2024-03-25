@@ -22,7 +22,21 @@
                 <div class="col-md-4">
                     <p>
                         {% if user.is_authenticated %}
-                    
+                        <ul>
+                            <li><a href="{% url 'quotes:quote' %}" role="button">Add Quote</a></li>
+                            <li><a href="{% url 'quotes:tag' %}" role="button">Add Tag</a></li>
+                        </ul>
+                        <ul>
+                            <li>Welcome <b>{{ user.username }}!</b></li>
+                        </ul>
+                        <form action="{% url 'users:logout' %}" method="post">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary mt-3">Logout</button>
+                        </form>
+
+
+{% comment %} 
+
                     <form action="{% url 'users:logout' %}" method="post">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-primary mt-3">Logout</button>
@@ -35,7 +49,7 @@
                     <form action="{% url 'quotes:author' %}" method='get'>
                         {% csrf_token %}
                         <button type="submit" class="btn btn-primary mt-3">Add Author</button>
-                    </form>
+                    </form> {% endcomment %}
 
                         {% else %}
                         <a href="{% url 'users:register' %}" class="btn btn-primary">Register</a>
