@@ -28,11 +28,11 @@
                         <button type="submit" class="btn btn-primary mt-3">Logout</button>
                     </form>
                     
-                    <form action="{% url 'users:quote' %}" method="post">
+                    <form action="{% url 'quotes:quote' %}" method='put'>
                         {% csrf_token %}
                         <button type="submit" class="btn btn-primary mt-3">Add Quote</button>
                         </form>
-                    <form action="{% url 'users:author' %}" method="post">
+                    <form action="{% url 'quotes:author' %}" method='put'>
                         {% csrf_token %}
                         <button type="submit" class="btn btn-primary mt-3">Add Author</button>
                     </form>
@@ -48,23 +48,3 @@
 </div>
 </body>
 </html>
-
-
-
-{% comment %} <nav style="margin-bottom: 20px; border-bottom: 2px solid; padding-left: 30px">
-    {% if user.is_authenticated %}
-    <ul>
-        <li><a href="{% url 'quotes:quote' %}" role="button">Add Quote</a></li>
-        <li><a href="{% url 'quotes:author' %}" role="button">Add Author</a></li>
-    </ul>
-    <ul>
-        <li>Welcome <b>{{ user.username }}!</b></li>
-        <li><a href="{% url 'users:logout' %}" role="button">Logout</a></li>
-    </ul>
-    {% else %}
-    <ul>
-        <li><a href="{% url 'users:signup' %}" role="button">Register</a></li>
-        <li><a href="{% url 'users:login' %}" role="button">Login</a></li>
-    </ul>
-    {% endif %}
-</nav> {% endcomment %}

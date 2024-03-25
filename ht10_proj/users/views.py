@@ -1,3 +1,4 @@
+
 from django.views import View
 from .forms import RegisterForm
 from django.shortcuts import render, redirect
@@ -15,6 +16,7 @@ class RegisterView(View):
         return super().dispatch(request, *args, **kwargs)
 
     def get(self, request):
+        
         return render(request, self.template_name, context={"form": self.form_class})
 
     def post(self, request):
@@ -26,13 +28,7 @@ class RegisterView(View):
             return redirect(to="users:login")
         return render(request, self.template_name, context={"form": form})
     
-    def quote(self, request):
-        print('lllllllllllllll')
-        return render(request,'quotes/index.html')
     
-    def author(self, request):
-        print('aaaaaaaaaaaaaaaaa')
-        return render(request,'quotes/index.html')
         
 
 # from django.views import View
