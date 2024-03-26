@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
-from .views import RegisterView
+#from .views import RegisterView
 
 #from .forms import LoginForm
 
