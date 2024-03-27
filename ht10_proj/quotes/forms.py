@@ -1,21 +1,35 @@
-from django.forms import CharField, TextInput, EmailInput, EmailField, PasswordInput
+from django.forms import CharField, TextInput, EmailField, PasswordInput
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django import forms
 
 class TagForm(UserCreationForm):
-    username = CharField(max_length=19, required=True, widget=TextInput(attrs={"class": "form-control", }))
-    email = EmailField(max_length=30, required=True, widget=EmailInput(attrs={"class": "form-control", }))
-    password1 = CharField(required=True, widget=PasswordInput(attrs={"class": "form-control", }))
-    password2 = CharField(required=True, widget=PasswordInput(attrs={"class": "form-control", }))
-
+    user = CharField(max_length=19, required=True, widget=TextInput(attrs={"class": "form-control", }))
+    name = CharField(max_length=25, required=True, widget=TextInput(attrs={"class": "form-control", }))
+    
     class Meta:
         model = User
-        fields = ("username", "email", "password1", "password2")
+        fields = ("user", "name")
 
-class QuoteForm(AuthenticationForm):
-    username = CharField(widget=TextInput(attrs={"class": "form-control"}))
-    password = CharField(widget=PasswordInput(attrs={"class": "form-control"}))
 
-    class Meta:
-        model = User
-        fields = ['username', 'password']
+class QuoteForm(forms.Form):
+    quote = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control"}))
+    tags = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control"}))  # Assuming tags are entered as a comma-separated string
+    author = forms.CharField(widget=forms.TextInput(attrs={"class": "form-control"}))
+
+    def clean_tags(self):
+        tags_str = self.cleaned_data['tags']
+        tags = [tag.strip() for tag in tags_str.split(',')]
+        return tags
+
+
+
+
+# class QuoteForm(AuthenticationForm):
+#     quote = CharField(widget=TextInput(attrs={"class": "form-control"}))
+#     tags = ListField(widget=ArraysInput(attrs={"class": "form-control"}))
+#     author = CharField(widget=TextInput(attrs={"class": "form-control"}))
+
+#     class Meta:
+#         model = User
+#         fields = ['quote', 'tags', 'author']
