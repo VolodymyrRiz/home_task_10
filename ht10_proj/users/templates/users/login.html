@@ -29,21 +29,16 @@
     </div>
 </form>
 
-{% endblock %}
 
-{% comment %} {% comment %} {% comment %} {% extends "quotes/base.html" %}
-
-{% block content %}
-
-{% comment %} {% if messages %}
+{% if messages %}
 <div>
     {% for message in messages %}
     <div {% if message.tags %} class="alert-{{ message.tags }}" {% endif %}>{{ message }}</div>
     {% endfor %}
 </div>
-{% endif %} {% endcomment %}
+{% endif %}
 
-{% comment %} <form action="{% url 'users:login' %}" method="post">
+<form action="{% url 'users:login' %}" method="post">
     {% csrf_token %}
     <div>
         <label> Username:
@@ -61,7 +56,10 @@
         <button type="submit">Submit</button>
         <button type="reset" class="secondary">Reset</button>
     </div>
+    <div class="small text-center">
+        <a href="{% url "users:password_reset" %}" class="text-center"><i>Forgot Password?</i></a>
+    </div>
 </form>
 
-{% endblock %} {% endcomment %}
+{% endblock %}
 

@@ -1,5 +1,5 @@
 from django import template
-from bson.objectid import ObjectId
+#from bson.objectid import ObjectId
 
 from ..utils import get_mongodb
 

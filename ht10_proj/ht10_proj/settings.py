@@ -91,6 +91,24 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp.meta.ua'
+# EMAIL_PORT = 465
+# EMAIL_STARTTLS = False
+# EMAIL_USE_SSL = True
+# EMAIL_USE_TLS = False
+# EMAIL_HOST_USER = 'rizun2024@meta.ua'
+# EMAIL_HOST_PASSWORD = 'Rizun_2024'
+# DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.meta.ua'  # Replace with your SMTP server
+EMAIL_PORT = 465  # Replace with your SMTP port
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'rizun2024@meta.ua'  # Replace with your email address
+EMAIL_HOST_PASSWORD = 'Rizun_2024'  # Replace with your email password
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
